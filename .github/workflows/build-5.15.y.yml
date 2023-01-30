@@ -20,11 +20,11 @@ on:
 
   push:
 
-    branches: [ master ]
+    branches: [ main ]
 
   pull_request:
 
-    branches: [ master ]
+    branches: [ main ]
 
   # 允许您从“操作”选项卡手动运行此工作流
 
@@ -38,7 +38,7 @@ on:
 
         description: 'SSH 连接'
 
-        required: false
+        required: true
 
         default: 'false'
 
@@ -46,9 +46,9 @@ on:
 
         description: '设置机型： [ l1pro / chainedbox /rock64 ]'
 
-        required: false
+        required: true
 
-        default: 'l1pro'
+        default: 'rock64'
 
       armbianbranch:
 
