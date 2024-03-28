@@ -38,9 +38,7 @@ on:
 
       armbianboard:
         description: "设置机型： [ l1pro / chainedbox /rock64 ]"
-
         required: true
-
         default: "rock64"
 
       armbianbranch:
@@ -76,7 +74,7 @@ jobs:
           if [ -n "${{ github.event.inputs.armbianboard }}" ]; then
              ARMBIAN_BOARD=${{ github.event.inputs.armbianboard }}
           else
-             ARMBIAN_BOARD=l1pro
+             ARMBIAN_BOARD=rock64
           fi
           echo "ARMBIAN_BOARD=${ARMBIAN_BOARD}" >> $GITHUB_ENV
           if [ -n "${{ github.event.inputs.armbianbranch }}" ]; then
@@ -90,7 +88,6 @@ jobs:
           else
              ARMBIAN_RELEASE=bookworm
           fi
-
           echo "ARMBIAN_RELEASE=${ARMBIAN_RELEASE}" >> $GITHUB_ENV
           sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
           sudo -E apt-get -qq update
