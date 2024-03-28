@@ -60,11 +60,11 @@ on:
 
       armbianrelease:
 
-        description: '设置发布系统版本： [ buster / bullseye ]'
+        description: '设置发布系统版本： [ buster / bookworm ]'
 
         required: false
 
-        default: 'bullseye'
+        default: 'bookworm'
 
   schedule:
 
@@ -140,7 +140,7 @@ jobs:
 
         else
 
-           ARMBIAN_RELEASE=bullseye
+           ARMBIAN_RELEASE=bookworm
 
         fi
 

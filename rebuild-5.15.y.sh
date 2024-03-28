@@ -73,14 +73,14 @@ mkimage -C none -T script -d $mount_point/boot/boot.cmd $mount_point/boot/boot.s
 # patch rootfs
 echo "patch rootfs"
 cat > $mount_point/etc/apt/sources.list <<EOF
-deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
-deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
-deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
-deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
+deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
 EOF
 
 cat > /etc/apt/sources.list.d/armbian.list <<EOF
-deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/armbian/ bullseye main bullseye-utils bullseye-desktop
+deb [arch=arm64,armhf] https://mirrors.tuna.tsinghua.edu.cn/armbian/ bookworm main bookworm-utils bookworm-desktop
 EOF
 
 sed -i 's/ENABLED=true/#ENABLED=true/' $mount_point/etc/default/armbian-zram-config
